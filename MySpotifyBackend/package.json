@@ -1,0 +1,24 @@
+{
+  "name": "myspotifybackend",
+  "version": "1.0.0",
+  "description": "MySpotify is a web application that allows users to connect to their Spotify accounts and access personalized statistics about their music listening habits. By leveraging the Spotify Web API, users can view insights such as total listening hours, favorite tracks, top artists, and genre preferences. The application is built using React for the front-end and Node.js with Express.js for the back-end.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azoulux/MySpotify.git"
+  },
+  "author": "AZOULA Arthur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azoulux/MySpotify/issues"
+  },
+  "homepage": "https://github.com/azoulux/MySpotify#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  }
+}

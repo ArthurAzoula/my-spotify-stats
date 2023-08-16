@@ -1,0 +1,35 @@
+# Ignore node_modules and build artifacts
+node_modules/
+build/
+dist/
+
+# Ignore environment variables
+.env
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore compiled binaries and logs
+*.log
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore user-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore database
+# You might want to specify your database folder or file if applicable
+
+# Ignore front-end build artifacts
+/MySpotifyFrontend/build/
+
+# Ignore back-end dependencies and build artifacts
+/MySpotifyBackend/node_modules/
+/MySpotifyBackend/build/
