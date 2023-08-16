@@ -1,9 +1,13 @@
 // authController.js
 //const fetch = require('node-fetch');
 const querystring = require('querystring');
+const dotenv = require('dotenv');
 
-const CLIENT_ID = 'c17101d3ed1d44fc943329fe3cd447fb';
-const CLIENT_SECRET = '4fb43990c51f4605ac4481cf9b0dce1c';
+// Lire les données du .env
+dotenv.config();
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.SECRET_ID;
 const REDIRECT_URI = 'http://localhost:3000/auth/callback';
 const SCOPES = 'user-read-private user-read-email user-top-read user-library-read';
 
@@ -40,6 +44,16 @@ const authController = {
     const tokenData = await tokenResponse.json();
     return tokenData;
   },
+
+  logout : async (req, res) => {
+    try {
+      res.cookie('token', '', { maxAge : 2000, httpOnly : true, sameSite : 'strict'});
+      res.status(200).redirect('localhost:3001/');
+    } catch(error) {
+      console.log(`erreur de déconnexion : ${error.message}`);
+      res.status(500).redirect('/localhost:3001/');
+    }
+  }
 
   // Autres méthodes liées à l'authentification
 };

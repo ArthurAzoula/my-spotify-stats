@@ -9,6 +9,8 @@ router.get('/login', (req, res) => {
   res.redirect(authUrl);
 });
 
+router.get('/logout', authController.logout);
+
 router.get('/callback', async (req, res) => {
   const code = req.query.code;
   const tokenData = await authController.exchangeCodeForToken(code);

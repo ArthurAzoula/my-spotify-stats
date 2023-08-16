@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoute');
 const spotifyRoutes = require('./routes/spotifyRoute');
 const session = require('express-session');
+const dotenv = require('dotenv');
 
 
 // database
@@ -22,11 +23,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+dotenv.config();
+
+const SECRET_SESSION = process.env.SESSION_SECRET || 'default_secret';
+
 // session
 app.use(session({
-  secret: 'secret_key',
+  secret: SECRET_SESSION,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 3600000,
+  }
 }))
 
 // Install global middleware
