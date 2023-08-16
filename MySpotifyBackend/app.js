@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/authRoute');
+const spotifyRoutes = require('./routes/spotifyRoute');
+
 
 // database
 
@@ -20,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Install global middleware
 // app.use(error); <- Retire également cette ligne
+
+app.use('/', spotifyRoutes)
+app.use('/auth', authRoutes);
 
 // ... Ajoute ici tes configurations de routes et middleware
 
