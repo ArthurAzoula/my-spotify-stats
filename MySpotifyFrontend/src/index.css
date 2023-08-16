@@ -1,3 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom colors */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Spotify colors */
+@layer utilities {
+  .bg-spotify-green {
+    background-color: #1db954;
+  }
+  .text-spotify-green {
+    color: #1db954;
+  }
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +30,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
 }

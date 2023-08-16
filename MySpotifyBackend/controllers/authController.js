@@ -9,7 +9,7 @@ dotenv.config();
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.SECRET_ID;
 const REDIRECT_URI = 'http://localhost:3000/auth/callback';
-const SCOPES = 'user-read-private user-read-email user-top-read user-library-read';
+const SCOPES = 'user-read-private user-read-email user-top-read user-library-read user-read-recently-played ';
 
 const authController = {
   buildAuthUrl: () => {

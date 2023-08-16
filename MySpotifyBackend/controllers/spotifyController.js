@@ -23,8 +23,10 @@ const getUserInfo = async (req, res) => {
 
 const getRecentlyPlayed = async (req, res) => {
     try {
+        const limit = 20;
         const token = req.session .access_token;
-        const recently = await fetch(`${SPOTIFY_API_URL}/me/player/recently-played`, {
+        console.log(token);
+        const recently = await fetch(`${SPOTIFY_API_URL}/me/player/recently-played?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
