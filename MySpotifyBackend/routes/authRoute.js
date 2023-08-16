@@ -12,10 +12,10 @@ router.get('/login', (req, res) => {
 router.get('/callback', async (req, res) => {
   const code = req.query.code;
   const tokenData = await authController.exchangeCodeForToken(code);
-
-  // Gère ici la logique pour stocker les tokens, par exemple, dans une session
   
-  console.log(`token ID : ${tokenData._id}`)
+  // console.log(`token data : ${Object.values(tokenData)}`)
+
+  req.session.access_token = tokenData.access_token;
 
   res.send('Authorization successful!');
 });
