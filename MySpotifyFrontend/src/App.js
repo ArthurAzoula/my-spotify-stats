@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import RecentlyPlayed from './pages/Recently-played';
 import Playlist from './pages/Playlist';
+import Top from './pages/Top';
 // Import other pages
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/playlist" element={<Playlist />} />
+            <Route path='/stats' element={<Top />} />
             {/* Add more routes */}
           </Routes>
         </div>

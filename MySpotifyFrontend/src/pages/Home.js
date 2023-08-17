@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import Layout from '../layouts/Layout';
 import LoginButton from '../components/LoginButton';
 import Carousel from 'react-multi-carousel';
@@ -7,8 +9,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic, faUser, faPlayCircle, faHeadphonesAlt, faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import listen_music from '../assets/listen_music.jpg'
 import '../styles/home.css';
+import { LoggedInProvider, useLoggedIn } from '../context/LoggedInContext';
 
 const Home = () => {
+
+    const { state } = useLoggedIn();
+    const [ userData, setUserData ] = useState(null)
+
+    useEffect(() => {
+        if (state.isLoggedIn) {
+            fetch('/spotify/me')
+                .then(response => response.json())
+                .then(data => {
+                    setUserData(data);     // Met à jour les données de l'utilisateur
+                });
+        }
+    }, [state.isLoggedIn])
+
     const carouselItems = [
         {
             id: 1,
@@ -58,7 +75,18 @@ const Home = () => {
                     Elevate your musical journey with MySpotify. Seamlessly connect to your Spotify account to explore your profile, data,
                     and listening habits. Uncover insights into your recent tracks, top artists, favorite playlists, and more.
                 </p>
-                <LoginButton />
+                {state.isLoggedIn && userData ? (
+                    <div className="flex items-center justify-center space-x-4">
+                        <img
+                            src={userData.images[0].url}
+                            alt="User Profile"
+                            className="w-10 h-10 rounded-full"
+                        />
+                        <p className="text-white">Bienvenue {userData.display_name}</p>
+                    </div>
+                ) : (
+                    <LoginButton />
+                )}
             </div>
 
             <div className="mt-12">

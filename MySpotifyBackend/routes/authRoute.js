@@ -14,12 +14,23 @@ router.get('/logout', authController.logout);
 router.get('/callback', async (req, res) => {
   const code = req.query.code;
   const tokenData = await authController.exchangeCodeForToken(code);
-  
-  // console.log(`token data : ${Object.values(tokenData)}`)
 
+  // Stocker le token dans la session
   req.session.access_token = tokenData.access_token;
 
-  res.send('Authorization successful!');
+  // Indiquer que la connexion a réussi
+  req.session.loggedIn = true;
+
+  const redirectUrl = 'http://localhost:3001/';
+
+  res.redirect(redirectUrl);
 });
+
+// Ajout une route pour vérifier l'état de connexion
+router.get('/check-loggedin', (req, res) => {
+  const loggedIn = req.session.loggedIn || false; // Par défaut, l'utilisateur n'est pas connecté
+  res.json({ loggedIn });
+});
+
 
 module.exports = router;
