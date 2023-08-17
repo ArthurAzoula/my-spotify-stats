@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../layouts/Layout';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faMusic } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faMusic, faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faFacebook, faInstagram, faSpotify, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Top = () => {
@@ -25,7 +25,7 @@ const Top = () => {
 
     return (
         <Layout>
-            <div className="bg-gradient-to-r from-gray-800 to-black p-8 rounded-lg shadow-xl">
+            <div className="bg-gray-800 p-8 rounded-lg shadow-xl">
                 <h1 className="text-4xl font-semibold text-center text-white mb-6 animate-gradient1">
                     Your Top Music Statistics
                 </h1>
@@ -105,7 +105,7 @@ const Top = () => {
                                                 <img src={item.album.images[0].url} alt={item.album.name} className="w-full h-full rounded-md" />
                                                 <div className="absolute inset-0 bg-green-500 bg-opacity-20 transition-opacity opacity-0 group-hover:opacity-100 flex justify-center items-center">
                                                     <a href={item.album.external_urls.spotify} target="_blank" className="text-white hover:underline flex items-center">
-                                                        <FontAwesomeIcon icon={faMusic} className="mr-2" />
+                                                        <FontAwesomeIcon icon={faCompactDisc} className="mr-2" />
                                                         View Album
                                                     </a>
                                                 </div>
