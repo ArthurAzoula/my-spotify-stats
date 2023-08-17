@@ -39,11 +39,11 @@ const Navbar = ({ isLoggedIn }) => {
           <li>
             <Link to="/playlist" className="flex items-center text-sm hover:text-green-500 transition duration-300">
               <FontAwesomeIcon icon={faMusic} className="mr-2" />
-              Playlists
+              Playlists & Recommandations
             </Link>
           </li>
           <li>
-            <Link to="/statistics" className="flex items-center text-sm hover:text-green-500 transition duration-300">
+            <Link to="/stats" className="flex items-center text-sm hover:text-green-500 transition duration-300">
               <FontAwesomeIcon icon={faChartBar} className="mr-2" />
               Statistics
             </Link>
@@ -52,7 +52,7 @@ const Navbar = ({ isLoggedIn }) => {
             {isLoggedIn ? (
               <div className="relative">
                 <button onClick={toggleProfileMenu} onBlur={closeProfileMenu} className="focus:outline-none">
-                  <FontAwesomeIcon icon={faUser} className="mr-2 text-sm hover:text-green-500 transition duration-300" />
+                  <FontAwesomeIcon icon={faUser} className="mr-2 text-s transition duration-300" />
                   Profil
                 </button>
                 {isProfileMenuOpen && (
@@ -64,12 +64,12 @@ const Navbar = ({ isLoggedIn }) => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/logout" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
+                      <Link to="http://localhost:3000/auth/logout" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
                         <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                         Logout
                       </Link>
                     </li>
-                  </ul>
+                  </ul> 
                 )}
               </div>
             ) : (

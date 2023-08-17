@@ -12,6 +12,9 @@ router.get('/player/recently-played', spotifyController.getRecentlyPlayed);
 // Playlists sauvegardées par l'utilisateur
 router.get('/playlists', spotifyController.getUserPlaylists);
 
+// Recommandation pour l'utilisateur
+router.get('/recommendations', spotifyController.getUserRecommendations);
+
 // Artistes suivis
 router.get('/following', spotifyController.getFollowedArtists);
 
