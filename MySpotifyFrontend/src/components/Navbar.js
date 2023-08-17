@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import spotifyLogo from '../assets/social-spotify.png';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faHistory, faMusic, faChartBar, faUser, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import LoginButton from './LoginButton';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ isLoggedIn }) => {
   const [isProfileMenuOpen, setProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
   const toggleProfileMenu = () => {
     setProfileMenuOpen(!isProfileMenuOpen);
@@ -15,6 +16,21 @@ const Navbar = ({ isLoggedIn }) => {
   const closeProfileMenu = () => {
     setProfileMenuOpen(false);
   };
+
+  const handleDocumentClick = (e) => {
+    if (profileMenuRef.current && !profileMenuRef.current.contains(e.target)) {
+      closeProfileMenu();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
+
 
   return (
     <nav className="bg-gray-800 text-white p-4">
@@ -50,30 +66,30 @@ const Navbar = ({ isLoggedIn }) => {
           </li>
           <li>
             {isLoggedIn ? (
-              <div className="relative">
-                <button onClick={toggleProfileMenu} onBlur={closeProfileMenu} className="focus:outline-none">
+              <div className="relative" ref={profileMenuRef}>
+                <button onClick={toggleProfileMenu} className="focus:outline-none">
                   <FontAwesomeIcon icon={faUser} className="mr-2 text-s transition duration-300" />
                   Profil
                 </button>
                 {isProfileMenuOpen && (
                   <ul className="absolute mt-2 bg-white text-gray-800 py-2 rounded">
                     <li>
-                      <Link to="/settings" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
+                      <a href="/settings" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
                         <FontAwesomeIcon icon={faCog} className="mr-2" />
                         Settings
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link to="http://localhost:3000/auth/logout" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
+                      <a href="http://localhost:3000/auth/logout" className="flex items-center py-2 px-4 text-sm hover:bg-gray-200 transition duration-300">
                         <FontAwesomeIcon icon={faSignOutAlt} className="mr-2" />
                         Logout
-                      </Link>
+                      </a>
                     </li>
-                  </ul> 
+                  </ul>
                 )}
               </div>
             ) : (
-              <LoginButton/>
+              <LoginButton />
             )}
           </li>
         </ul>

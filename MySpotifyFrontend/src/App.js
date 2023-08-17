@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import RecentlyPlayed from './pages/Recently-played';
 import Playlist from './pages/Playlist';
 import Top from './pages/Top';
+import Profile from './pages/Profil';
 // Import other pages
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/recently-played" element={<RecentlyPlayed />} />
             <Route path="/playlist" element={<Playlist />} />
             <Route path='/stats' element={<Top />} />
+            <Route path='/settings' element={<Profile />} />
             {/* Add more routes */}
           </Routes>
         </div>

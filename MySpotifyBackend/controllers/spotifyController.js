@@ -8,7 +8,7 @@ const handleAPIError = (res, error) => {
 
 const getUserInfo = async (req, res) => {
     try {
-        const token = req.session .access_token; // Récupère l'access token de la requête
+        const token = req.session.access_token; // Récupère l'access token de la requête
         const user = await fetch(`${SPOTIFY_API_URL}/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ const getRecentlyPlayed = async (req, res) => {
 
 const getUserPlaylists = async (req, res) => {
     try {
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const playlists = await fetch(`${SPOTIFY_API_URL}/me/playlists`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -53,28 +53,28 @@ const getUserPlaylists = async (req, res) => {
     }
 }
 
-    const getUserRecommendations = async (req, res) => {
-        try {
-            const limit = 20;
-            const market = req.params.market;
-            const seedArtist = req.params.seedArtist;
-            const seedTracks = req.params.seedTracks;
-            const token = req.session.access_token; // Retirez l'espace après req.session
-            const recommandations = await fetch(`${SPOTIFY_API_URL}/recommendations`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const recommandationData = await recommandations.json();
-            res.status(200).json(recommandationData);
-        } catch (err) {
-            handleAPIError(res, err);
-        }
+const getUserRecommendations = async (req, res) => {
+    try {
+        const limit = 20;
+        const market = req.params.market;
+        const seedArtist = req.params.seedArtist;
+        const seedTracks = req.params.seedTracks;
+        const token = req.session.access_token; // Retirez l'espace après req.session
+        const recommandations = await fetch(`${SPOTIFY_API_URL}/recommendations`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        const recommandationData = await recommandations.json();
+        res.status(200).json(recommandationData);
+    } catch (err) {
+        handleAPIError(res, err);
     }
+}
 
 const getFollowedArtists = async (req, res) => {
     try {
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const artists = await fetch(`${SPOTIFY_API_URL}/me/following?type=artist`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const getFollowedArtists = async (req, res) => {
 const getTopTracks = async (req, res) => {
     try {
         const limit = 20;
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const tracks = await fetch(`${SPOTIFY_API_URL}/me/top/tracks?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ const getTopTracks = async (req, res) => {
 const getTopArtists = async (req, res) => {
     try {
         const limit = 20;
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const artists = await fetch(`${SPOTIFY_API_URL}/me/top/artists?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const getTopArtists = async (req, res) => {
 const getTopAlbums = async (req, res) => {
     try {
         const limit = 20;
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const albums = await fetch(`${SPOTIFY_API_URL}/me/albums?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -138,7 +138,7 @@ const getTopAlbums = async (req, res) => {
 const getTopGenres = async (req, res) => {
     try {
         const limit = 20;
-        const token = req.session .access_token;
+        const token = req.session.access_token;
         const genres = await fetch(`${SPOTIFY_API_URL}/me/genres?limit=${limit}`, {
             headers: {
                 Authorization: `Bearer ${token}`,

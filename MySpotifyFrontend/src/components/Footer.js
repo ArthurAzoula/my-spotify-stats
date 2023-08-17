@@ -21,19 +21,19 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center mt-6 md:mt-0">
-          <a href="#" className="text-gray-400 hover:text-white transition duration-300 mx-2">
+          <a href="https://twitter.com/AzoulaArthur" target='_blank' className="text-gray-400 hover:text-white transition duration-300 mx-2">
             <FontAwesomeIcon icon={faTwitter} className="text-blue-400" />
           </a>
-          <a href="#" className="text-gray-400 hover:text-white transition duration-300 mx-2">
+          <a href="https://www.facebook.com/profile.php?id=100005979587850" target='_blank' className="text-gray-400 hover:text-white transition duration-300 mx-2">
             <FontAwesomeIcon icon={faFacebook} className="text-blue-500" />
           </a>
-          <a href="#" className="text-gray-400 hover:text-white transition duration-300 mx-2">
+          <a href="https://www.instagram.com/arthur_azl/" target='_blank' className="text-gray-400 hover:text-white transition duration-300 mx-2">
             <FontAwesomeIcon icon={faInstagram} className="text-pink-500" />
           </a>
-          <a href="#" className="text-gray-400 hover:text-white transition duration-300 mx-2">
+          <a href="https://open.spotify.com/user/mgheirkuatma45c0qmdm6gjzk" target='_blank' className="text-gray-400 hover:text-white transition duration-300 mx-2">
             <FontAwesomeIcon icon={faSpotify} className="text-green-400" />
           </a>
-          <a href="#" className="text-gray-400 hover:text-white transition duration-300 mx-2">
+          <a href="https://github.com/azoulux" target='_blank' className="text-gray-400 hover:text-white transition duration-300 mx-2">
             <FontAwesomeIcon icon={faGithub} className="text-gray-400" />
           </a>
         </div>

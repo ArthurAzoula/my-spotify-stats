@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout';
 
 const Top = () => {
     const [topData, setTopData] = useState([]);
-    const [selectedType, setSelectedType] = useState('tracks');
+    const [selectedType, setSelectedType] = useState('albums');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Top = () => {
     }, [selectedType]);
 
     return (
-        <Layout>
+        <Layout>    
             <div className="bg-gradient-to-r from-gray-800 to-black p-8 rounded-lg shadow-xl">
                 <h1 className="text-4xl font-semibold text-center text-white mb-6 animate-gradient1">
                     Your Top Music Statistics
