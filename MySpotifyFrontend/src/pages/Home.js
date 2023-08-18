@@ -75,7 +75,7 @@ const Home = () => {
                     Elevate your musical journey with MySpotify. Seamlessly connect to your Spotify account to explore your profile, data,
                     and listening habits. Uncover insights into your recent tracks, top artists, favorite playlists, and more.
                 </p>
-                {state.isLoggedIn && userData ? (
+                {state.isLoggedIn && userData && userData.images && userData.images[0] && userData.images[0].url ? (
                     <div className="flex items-center justify-center space-x-4">
                         <img
                             src={userData.images[0].url}
