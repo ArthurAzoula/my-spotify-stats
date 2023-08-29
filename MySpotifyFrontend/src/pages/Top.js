@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../layouts/Layout';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faMusic, faCompactDisc } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faMusic, faCompactDisc, faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter, faFacebook, faInstagram, faSpotify, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useLoggedIn } from '../context/LoggedInContext';
 import NotLoggedInPage from '../components/NotConnected';
@@ -83,12 +83,11 @@ const Top = () => {
                                                         )}
                                                         {item.genres && (
                                                             <div className="text-gray-300">
-                                                                <p className="mb-1">Genres:</p>
                                                                 <ul className="flex flex-wrap gap-2">
                                                                     {item.genres.map((genre, index) => (
-                                                                        <li key={index} className="bg-green-500 text-gray-800 px-2 py-1 rounded">
-                                                                            <span className="mr-1">#</span>
-                                                                            {genre.toUpperCase()}
+                                                                        <li key={index} className="bg-green-500 text-gray-800 px-2 py-1 rounded flex items-center">
+                                                                            <span className="mr-1"><FontAwesomeIcon icon={faHashtag} /></span>
+                                                                            <span>{genre.toUpperCase()}</span>
                                                                         </li>
                                                                     ))}
                                                                 </ul>
