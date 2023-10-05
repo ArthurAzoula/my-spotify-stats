@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch')
 const SPOTIFY_API_URL = 'https://api.spotify.com/v1';
 
 const handleAPIError = (res, error) => {

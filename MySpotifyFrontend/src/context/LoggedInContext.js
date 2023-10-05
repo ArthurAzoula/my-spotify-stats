@@ -4,6 +4,7 @@ const LoggedInContext = createContext();
 
 const initialState = {
     isLoggedIn: false,
+    token: null,
 };
 
 const reducer = (state, action) => {

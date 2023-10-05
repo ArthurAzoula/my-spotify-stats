@@ -32,5 +32,10 @@ router.get('/check-loggedin', (req, res) => {
   res.json({ loggedIn });
 });
 
+router.get('/token', (req, res) => {
+  const token = req.session.access_token || null;
+  res.json({ token })
+})
+
 
 module.exports = router;

@@ -1,5 +1,5 @@
 // authController.js
-//const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 const querystring = require('querystring');
 const dotenv = require('dotenv');
 
